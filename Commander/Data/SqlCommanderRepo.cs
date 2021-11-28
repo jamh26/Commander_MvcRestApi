@@ -51,6 +51,11 @@ namespace Commander.Data
             throw new System.NotImplementedException();
         }
 
+        public void UpdateCommand(Command command)
+        {
+
+        }
+
         public bool SaveChanges()
         {
             try

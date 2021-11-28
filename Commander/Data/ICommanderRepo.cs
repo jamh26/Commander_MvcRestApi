@@ -19,5 +19,7 @@ namespace Commander.Data
 
         // Update entity or add if it does not exist
         bool UpsertCommand(Command command);
+
+        void UpdateCommand(Command command);
     }
 }

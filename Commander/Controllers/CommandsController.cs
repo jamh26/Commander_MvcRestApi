@@ -34,5 +34,20 @@ namespace Commander.Controllers
 
             return Ok(command);
         }
+
+        [HttpPost]
+        public ActionResult<Command> AddCommand(Command command)
+        {
+            try
+            {
+                _repository.AddCommand(command);
+                return Ok(command);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
+        }
     }
 }

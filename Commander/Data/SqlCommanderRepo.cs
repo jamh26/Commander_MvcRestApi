@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Commander.Models;
@@ -15,12 +16,14 @@ namespace Commander.Data
 
         public bool AddCommand(Command command)
         {
+            if (command == null)
+            {
+                throw new ArgumentNullException(nameof(command));
+            }
             try
             {
                 var result = _context.Add(command);
-                _context.SaveChanges();
-
-                return true;
+                return SaveChanges();
             }
             catch
             {
@@ -46,6 +49,18 @@ namespace Commander.Data
         public bool DeleteCommand(int id)
         {
             throw new System.NotImplementedException();
+        }
+
+        public bool SaveChanges()
+        {
+            try
+            {
+                return (_context.SaveChanges() >= 0);
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

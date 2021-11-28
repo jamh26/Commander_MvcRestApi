@@ -40,8 +40,9 @@ namespace Commander.Controllers
         {
             try
             {
-                _repository.AddCommand(command);
-                return Ok(command);
+                if (_repository.AddCommand(command))
+                    return Ok(command);
+                return BadRequest();
             }
             catch
             {

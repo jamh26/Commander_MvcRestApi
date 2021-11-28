@@ -11,11 +11,11 @@ namespace Commander.Data
 
         Command GetCommandById(int id);
 
-        Command AddCommand(Command command);
+        bool AddCommand(Command command);
 
         bool DeleteCommand(int id);
 
         // Update entity or add if it does not exist
-        Command UpsertCommand(Command command);
+        bool UpsertCommand(Command command);
     }
 }

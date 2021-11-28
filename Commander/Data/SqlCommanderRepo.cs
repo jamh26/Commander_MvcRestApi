@@ -13,12 +13,19 @@ namespace Commander.Data
             _context = context;
         }
 
-        public Command AddCommand(Command command)
+        public bool AddCommand(Command command)
         {
-            var result = _context.Add(command);
-            _context.SaveChanges();
+            try
+            {
+                var result = _context.Add(command);
+                _context.SaveChanges();
 
-            return command;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public IEnumerable<Command> GetAllCommands()
@@ -31,12 +38,12 @@ namespace Commander.Data
             return _context.Commands.FirstOrDefault(p => p.Id == id);
         }
 
-        public Command UpsertCommand(Command command)
+        public bool UpsertCommand(Command command)
         {
             throw new System.NotImplementedException();
         }
 
-        bool ICommanderRepo.DeleteCommand(int id)
+        public bool DeleteCommand(int id)
         {
             throw new System.NotImplementedException();
         }

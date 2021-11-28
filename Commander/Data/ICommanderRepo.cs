@@ -15,7 +15,7 @@ namespace Commander.Data
 
         bool AddCommand(Command command);
 
-        bool DeleteCommand(int id);
+        bool DeleteCommand(Command command);
 
         // Update entity or add if it does not exist
         bool UpsertCommand(Command command);

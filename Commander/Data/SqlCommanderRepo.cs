@@ -46,9 +46,21 @@ namespace Commander.Data
             throw new System.NotImplementedException();
         }
 
-        public bool DeleteCommand(int id)
+        public bool DeleteCommand(Command command)
         {
-            throw new System.NotImplementedException();
+            if (command == null)
+            {
+                throw new ArgumentNullException(nameof(command));
+            }
+            try
+            {
+                var result = _context.Remove(command);
+                return SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public void UpdateCommand(Command command)

@@ -1,7 +1,7 @@
-using Commander.Models;
+using Commander.Api.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Commander.Data
+namespace Commander.Api.Data
 {
     public class CommanderContext : DbContext
     {

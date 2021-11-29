@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Commander.Models;
+using Commander.Api.Models;
 
-namespace Commander.Data
+namespace Commander.Api.Data
 {
     public interface ICommanderRepo
     {

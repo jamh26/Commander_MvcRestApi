@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Commander.Models;
+using Commander.Api.Models;
 
-namespace Commander.Data
+namespace Commander.Api.Data
 {
     public class SqlCommanderRepo : ICommanderRepo
     {

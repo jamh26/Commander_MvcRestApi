@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using AutoMapper;
-using Commander.Data;
-using Commander.Dtos;
-using Commander.Models;
+using Commander.Api.Data;
+using Commander.Api.Dtos;
+using Commander.Api.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Commander.Controllers
+namespace Commander.Api.Controllers
 {
     // api/commands
     //[Route("api/[controller]")]

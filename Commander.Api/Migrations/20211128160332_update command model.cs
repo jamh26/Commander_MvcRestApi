@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Commander.Migrations
+namespace Commander.Api.Migrations
 {
     public partial class updatecommandmodel : Migration
     {

@@ -8,5 +8,8 @@ namespace Commander.BlazorClient.Services
     {
         Task<IEnumerable<CommandData>> GetAllCommands();
         Task<CommandData> GetCommandDetails(int id);
+        Task<CommandData> AddCommand(CommandData command);
+        Task UpdateCommand(CommandData command);
+        Task DeleteCommand(int id);
     }
 }

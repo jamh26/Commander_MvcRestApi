@@ -25,9 +25,20 @@ else
                     <td>
                         <a href="@($"CommandDetail/{command.Id}")" class="btn btn-success">
                             Detail</a>
+                        <a href="@($"CommandEdit/{command.Id}")" class="btn btn-warning">
+                            Edit</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 }
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group row justify-content-center">
+            <a href="/CommandEdit" class="btn btn-success">
+                Create New Command</a>
+        </div>
+    </div>
+</div>

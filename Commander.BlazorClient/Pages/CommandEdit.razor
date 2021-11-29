@@ -1,0 +1,37 @@
+@page "/commandEdit"
+@page "/commandEdit/{id}"
+
+<h1>Details for @Command.HowTo</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <DataAnnotationsValidator />
+        <ValidationSummary></ValidationSummary>
+        <br />
+        <EditForm Model="@Command" OnValidSubmit="@HandleValidRequest" OnInvalidSubmit="HandleInvalidRequest">
+            <div class="form-group row">
+                <label class="col-md-4">HowTo</label>
+                <InputText class="col-md-8" @bind-Value="@Command.HowTo" id="HowTo"></InputText>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4">Line</label>
+                <InputText class="col-md-8" @bind-Value="@Command.Line" id="Line"></InputText>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-4">Platform</label>
+                <InputText class="col-md-8" @bind-Value="@Command.Platform" id="Platform"></InputText>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-warning">Save Command</button>
+                <a @onclick="@GoToOverview" class="btn btn-primary">Back</a>
+                @if (!String.IsNullOrEmpty(Id))
+                {
+                    <a @onclick="@DeleteCommand" class="btn btn-danger">Delete Command</a>
+                }
+            </div>
+
+            <label>@Message</label>
+        </EditForm>
+    </div>
+</div>

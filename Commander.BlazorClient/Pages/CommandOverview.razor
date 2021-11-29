@@ -1,0 +1,44 @@
+@page "/commandoverview"
+
+<h1>All Commands</h1>
+
+@if (Commands == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>HowTo</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var command in Commands)
+            {
+                <tr>
+                    <td>@command.Id</td>
+                    <td>@command.HowTo</td>
+                    <td>
+                        <a href="@($"CommandDetail/{command.Id}")" class="btn btn-success">
+                            Detail</a>
+                        <a href="@($"CommandEdit/{command.Id}")" class="btn btn-warning">
+                            Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group row justify-content-center">
+            <a href="/CommandEdit" class="btn btn-success">
+                Create New Command</a>
+        </div>
+    </div>
+</div>

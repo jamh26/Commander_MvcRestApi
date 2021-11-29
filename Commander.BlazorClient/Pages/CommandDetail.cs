@@ -1,5 +1,7 @@
+using System;
 using System.Threading.Tasks;
 using Commander.BlazorClient.Models;
+using Commander.BlazorClient.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace Commander.BlazorClient.Pages
@@ -9,27 +11,15 @@ namespace Commander.BlazorClient.Pages
         [Parameter]
         public string Id { get; set; }
 
+        [Inject]
+        public ICommandDataService CommandDataService { get; set; }
+
         public CommandData Command { get; set; } = new CommandData();
 
-        private void InitializeCommand()
+        protected async override Task OnInitializedAsync()
         {
-            var c1 = new CommandData
-            {
-                Id = 1,
-                HowTo = "test",
-                Line = "test",
-                Platform = "test"
-            };
-
-            Command = c1;
-
-
-        }
-
-        protected override Task OnInitializedAsync()
-        {
-            InitializeCommand();
-            return base.OnInitializedAsync();
+            var commandId = Convert.ToInt32(Id);
+            Command = await CommandDataService.GetCommandDetails(commandId);
         }
     }
 }

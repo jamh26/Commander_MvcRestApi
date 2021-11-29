@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Commander.BlazorClient.Models;
+using Commander.BlazorClient.Services;
+using Microsoft.AspNetCore.Components;
 
 namespace Commander.BlazorClient.Pages
 {
@@ -8,30 +11,12 @@ namespace Commander.BlazorClient.Pages
     {
         public IEnumerable<CommandData> Commands { get; set; }
 
-        private void InitializeCommands()
-        {
-            var c1 = new CommandData
-            {
-                Id = 1,
-                HowTo = "test",
-                Line = "test",
-                Platform = "test"
-            };
-            var c2 = new CommandData
-            {
-                Id = 2,
-                HowTo = "test2",
-                Line = "test2",
-                Platform = "test2"
-            };
+        [Inject]
+        public ICommandDataService CommandDataService { get; set; }
 
-            Commands = new List<CommandData> { c1, c2 };
-        }
-
-        protected override Task OnInitializedAsync()
+        protected async override Task OnInitializedAsync()
         {
-            InitializeCommands();
-            return base.OnInitializedAsync();
+            Commands = (await CommandDataService.GetAllCommands()).ToList();
         }
     }
 }

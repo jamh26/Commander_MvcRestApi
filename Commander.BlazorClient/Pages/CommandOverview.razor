@@ -13,8 +13,6 @@ else
             <tr>
                 <td>Id</td>
                 <td>HowTo</td>
-                <td>Line</td>
-                <td>Platform</td>
                 <td></td>
             </tr>
         </thead>
@@ -24,14 +22,11 @@ else
                 <tr>
                     <td>@command.Id</td>
                     <td>@command.HowTo</td>
-                    <td>@command.Line</td>
-                    <td>@command.Platform</td>
                     <td>
                         <a href="@($"CommandDetail/{command.Id}")" class="btn btn-success">
                             Detail</a>
                     </td>
                 </tr>
-
             }
         </tbody>
     </table>
